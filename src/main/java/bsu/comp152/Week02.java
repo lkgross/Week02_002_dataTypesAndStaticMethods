@@ -1,5 +1,7 @@
 package bsu.comp152;
 
+import java.util.Random;
+
 public class Week02 {
     public static void main(String[] args) {
         System.out.println(12 + 12);
@@ -75,5 +77,60 @@ public class Week02 {
         boolean result = 2<2;
         System.out.println(result);
         System.out.println(result && true);
+        Random rand = new Random();
+        System.out.println(rand.nextInt(10));
+        /* Printed out one of ten random integers
+         * from 0 to 9 inclusive.
+         *
+         * On the Random object rand,
+         * call the nextInt method,
+         * passing in 10 as an argument.
+         */
+        // Note nextInt can also take two arguments.
+        System.out.println(rand.nextInt(1, 7));
+        // The above statement generates numbers 1 to 6 inclusive.
+        dieRoll();
+        /*
+         * Call the static method multiSidedDieRoll
+         * passing the argument (parameter value)
+         * 6 or 12 or ... other number of sides.
+         */
+        multiSidedDieRoll(6);
+        multiSidedDieRoll(12);
+        System.out.println("You rolled a " + (returnRoll(6) + returnRoll(6)));
+    }
+
+    /**
+     * Static method dieRoll -
+     * Print the result of rolling a six-sided die.
+     */
+    public static void dieRoll() {
+        Random rand = new Random();
+        System.out.println("Your roll is " +
+                (rand.nextInt(6) + 1));
+    }
+
+    /**
+     * multiSidedDieRoll -
+     * Print the result of rolling a die with sides
+     * faces.
+     * @param sides
+     */
+    public static void multiSidedDieRoll(int sides) {
+        Random rand = new Random();
+        System.out.println("Your roll is " +
+                (rand.nextInt(sides) + 1));
+    }
+
+    /**
+     * returnRoll -
+     * Return the result of rolling a die with sides
+     * faces.
+     * @param sides
+     * @return
+     */
+    public static int returnRoll(int sides) {
+        Random rand = new Random();
+        return rand.nextInt(sides) + 1;
     }
 }
